@@ -1,0 +1,75 @@
+
+.visually-hidden,
+.visually-hidden-focusable:not(:focus, :focus-within) {
+	border: 0 !important;
+	clip-path: inset(50%) !important; /* 2 */
+	height: 1px !important;
+	margin: -1px !important;
+	overflow: hidden !important;
+	padding: 0 !important;
+	width: 1px !important;
+	white-space: nowrap !important; /* 3 */
+}
+
+/*
+	Prevent visually hidden caption from breaking table's collapsing borders
+	@author Louis-Maxime Piton
+	@see https://github.com/twbs/bootstrap/pull/37533
+*/
+.visually-hidden:not(caption),
+.visually-hidden-focusable:not(caption):not(:focus, :focus-within) {
+	position: absolute !important;
+}
+
+
+/*
+	Prevent overflowing children from being focusable.
+	@author Django Janny
+	@see https://github.com/twbs/bootstrap/pull/41286
+*/
+.visually-hidden *,
+.visually-hidden-focusable:not(:focus, :focus-within) * {
+	overflow: hidden !important;
+}
+
+body {
+
+    background-color: azure;
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+	padding:1rem;
+}
+
+h2 {
+	margin:2rem 0 ;
+}
+
+img {
+	width:50%;
+	margin:1rem 0;
+}
+
+section {
+	width:90%;
+	height:auto;
+	padding: 1rem;
+	
+	
+	/* background-color: #c0e7fb; */
+}
+
+.aria {
+	background-color:#f9ced5;
+}
+
+@media screen and (max-width: 400px) and (orientation:portrait)
+{
+	img {
+		width:100%;
+	}
+}
+
+
+ 
+

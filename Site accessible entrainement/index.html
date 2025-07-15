@@ -1,0 +1,1533 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Lexend:wght@100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <title>Site accessible entrainement</title>
+</head>
+<body class=".bricolage-grotesque">
+<p>
+    <h1>Site accessible entrainement avec cours Access42</h1>
+    <h2>Lien d'accès rapide :</h2>
+     <a href="#main">Contenu principal </a> 
+     <p>< a href="#main"> Contenu principal < /a><br>
+        < main id="main" tabindex="-1"> .... < /main>
+    </p>
+    <ul>
+        <li>Visible à la prise de focus ET </li>
+        <li>Doit se trouver en premier dans le code HTML</li>
+        <li>Tabindex:"-1" sur element cible</li>
+        <li>Mettre dans un li si plusieurs liens </li>
+    </ul>
+</p>
+ 
+<!-- Exemple :
+
+    <a href="#main">Contenu Principal</a>
+    <main id="main" tabindex="-1"> .... </main> 
+-->
+
+    <header> 
+        <h2>Header </h2>
+        <p>
+            ARIA role="banner" unique <br> OBLIGATOIRE pour l’en-tête du document
+            <ul>
+                <li> Contenus d’introduction</li>
+                <li> Peut contenir des titres, de la navigation</li>
+            </ul> 
+        </p>
+      
+       
+
+    </header> 
+    <nav class="menu_navigation"
+    > 
+        <h2>Menu de navigation (1 des 3 Systemes de navigation (2 minimum par site))</h2>
+        <p>ARIA role="navigation" (plusieurs ok)</p>
+        <p>Balise < nav >  OBLIGATOIRE ! Réservé aux zones de nav principales et secondaires !</p>
+       <ul>
+           <li>Menu de sous-rubrique</li>
+           <li>Navigation dans les collections de pages</li>
+           <li>Navigation dans les résultats de recherche</li>
+           <li>Le fil d’ariane</li>
+           <li>Les liens d’évitement</li>
+           <li>Le bouton "burger" doit être inclus dans l'élément nav</li>
+       </ul>
+
+    
+        <ul>
+            <li><a href="#Accueil">Accueil</a></li>
+            <li><a href="#Apropos">À propos</a></li>
+            <li><a href="#Contact">Contact</a></li>
+        </ul>
+
+    </nav>
+
+    <nav class="plan_du_site">
+        <h3>Plan du Site (1 des 3 Systemes de navigation (2 minimum par site))</h3>
+        
+       <ul>
+            <p> >> Représentatif de l’architecture générale du site</p>
+            <p>Liens fonctionnels :</p>
+            <li>Vérifier sur site W3C Link checker</li> 
+            <li>Extension <span lang="en">« Broken Link checker » </span>(sur Mozilla Firefox ou sur Chrome)</li>
+            <li>Intitulés des liens pertinents</li>
+       </ul>
+        
+        <ul>
+            <li><a href="/accueil">Accueil</a></li>
+            <li><a href="/apropos">A Propos</a></li>
+            <li>
+                <a href="/services">Services</a>
+                <ul>
+                    <li><a href="/services/design">Design</a></li>
+                    <li><a href="/services/web">Web</a></li>
+                    <li><a href="/services/accessibilite">Accessibilité</a></li>
+                </ul>
+            </li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="fomulairerecherche"> 
+        <h3>Formulaire de recherche (1 des 3 systemes de navigation)</h3>
+        <p>ARIA role="search" unique</p>
+        <label for="site-search">Search the site:</label>
+        <input type="search" id="site-search" name="q" />
+        <button>Search</button>
+    </div>
+    
+
+    <main id="main" tabindex="-1"> 
+        <h2><span lang="en">Main</span></h2>
+        <p> ARIA role="main" unique </p>
+        <strong> OBLIGATOIRE ! Un seul main par page !! id="main et tabindex="-1"</strong>
+        
+       <h2>Les Titres et la Hierarchie des headings</h2>
+        <h1>Accueil:___ "< h1>Accueil: < /h1>" </h1>
+            <h2>Actualités :___ "< h2> Actualités < /h2>"</h2>
+            <h2 role="heading" aria-level="3">Où en est-on ? :____" < h2 role="heading" aria-level="3">Où en est-on ? < /h2> " </h2>
+            <h2 role="heading" aria-level="3">Ils arrivent bientôt !____ :    "< h2 role="heading" aria-level="3">Ils arrivent bientôt !< /h2>"</h2>
+
+        <h2>Listes</h2> 
+        <ul>
+            <li>Liste non ordonnée : ul li</li>
+            <li>Liste ordonnée : ol li</li>
+            <li>Liste de définition : dl dt/dd</li>
+            <li>role="list" role="listitem"</li>
+            <li class="rouge">⚠ Les suites de liens devraient être structurées avec des listes.</li>
+        </ul>
+                 
+            <ul>
+                <li>Favoriser l’information…</li>
+                <li>Permettre aux personnes…</li>
+            </ul>
+
+            <ol>
+                <li>Favoriser l’information…</li>
+                <li>Permettre aux personnes…</li>
+            </ol>
+            
+            <div role="list"> <!-- Example avec les rôles-->
+                <div role="listitem">Favoriser l’information…</div>
+                <div role="listitem">Permettre aux personnes…</div>
+            </div>
+
+            
+            <dl><!-- Example définitions-->
+
+                <dt>Terme à définir…</dt>
+                <dd>Définition…</dd>
+
+                <dt>...</dt>
+                <dd>...</dd>
+
+            </dl>
+
+            
+            <div role="list"> <!-- Example avec les rôles-->
+
+                <div role="term">Terme à définir…</div>
+                <div role="definition"> Définition… </div>
+
+                <div role="term">...</div>
+                <div role="definition">...</div>
+
+            </div>
+
+        <h2>Citations</h2> 
+        <ul>
+            <li>Citation en ligne < q > < /q ></li>
+            <li>Citation en bloc < blockquote > < / blockquote ></blockquote> </li>
+        </ul>     
+        <p>Citation</p>      
+         <q>Carpe diem</q>
+         
+        <p>Blockquote</p>      
+         <blockquote>
+         <p>Tant qu’à jouer à marcher, éteignez votre ordi et allez marcher dehors</p>
+         </blockquote> 
+
+        <h2>Cadres iframe et frame</h2> 
+        <ul>
+            <li>Assurer <strong>l’identification</strong> des balises iframe et frame <strong>avec un titre pertinent</strong></li>
+            <li>Pas de titre dans le cas de cadres techniques (Google Analytics, etc.) mais cacher avec aria-hidden="true"</li>
+        </ul> 
+
+        <p class="exemple">Exemple:</p>
+
+        <p><strong>< iframe title="Publicité" ></strong> Video d'une pub dans ce frame <strong>< /iframe ></strong></p>
+        
+        <iframe title="Publicité">Video d'une pub dans ce frame</iframe>
+
+        <h2>Changement de langue</h2>
+        <p>Attribut <strong>lang</strong> sur l’élément ou un parent.
+            <br><strong>Cas typique : newsletter</strong>
+            <br>Avec les éditeurs de texte riche, permettre aux contributeurs d'intégrer des changements de langue : CKEditor
+        </p>
+
+        <p class="exemple">Exemple:</p>
+        < p >Des contenus vidéos sur le Web
+            (<strong>< span lang="en" > on < /span ></strong> et <strong>< span lang="en" > offline < /span ></strong>).
+        < /p >
+        <p>Des contenus vidéos sur le Web
+            (<span lang="en">on</span> et <span lang="en">offline</span>).
+        </p>
+
+        <h2>Changement de sens de lecture</h2>
+        <ul>
+            <li>attribut <strong>dir</strong> sur l’élément lui-même ou un parent ;</li>
+            <li>Deux valeurs : <strong>ltr ou rtl</strong> </li>
+            <li>ltr implicite, peut être omise sur l’élément html </li>
+        </ul>
+            <span lang="ar" dir="rtl">شكرا جزيلا 
+</span> 
+
+            <br>
+
+            <strong>< span lang="ar" dir="rtl" ></strong>
+            شكرا جزيلا 
+            <strong>< /span > </strong>
+
+        <h2>Tableaux de mise en forme</h2>
+        
+            <p>Compréhensible si linéarisé</p>
+            <ul>
+                <li><strong>role="presentation"</strong> sur la balise table</li>
+                <li><strong>HTML 4 : summary=""</strong> si présent</li>
+                <li>
+                    Pas de balises <strong>< th > < thead > < tfoot > < caption > </strong>
+                    <br> ou d’attributs de tableaux de données :
+                     <strong>scope / headers / colgroup / axis / role="columnheader" / role="rowheader"</strong>
+                </li>
+            </ul>
+    
+            <h3>Tableau role présentation: </h3>
+            <img src="images/tableau role presentation.png" alt="code montrant un tableau dont le role est presentation">
+            <table role="presentation">
+                <tr>
+                <td>
+                <p>Retrouvez nos vidéos d’informations !…</p>
+                </td>
+                </tr>
+            </table>
+
+            <p>En <strong>supprimant la sémantique</strong> du tableau <strong>avec le role="presentation"</strong>, les textes contenus dans le tableau, 
+                s'ils n’ont pas de sémantiques, contreviennent alors au critère 8.9 (détournement de balisage).
+               <br> Penser à redonner de la structure aux textes (titres, paragraphes, listes ...) dans ces cas
+            </p>
+
+        <h2>Tableaux simples</h2>
+        
+        <ul>
+            <li>Un titre "<strong>< caption ></strong>"</li>
+            <li>Déclaration des entêtes <strong>< th scope="[col|row]</strong>" ></li>
+        </ul>
+        
+        <img src="images/Tableau simple.png" alt="Code pour un tableau simple">
+
+        <!-- <table>
+            <caption>Parc et fréquentation des autres hébergements collectifs touristiques en 2018</caption>
+            <tr>
+                <th scope="col">Type d’hébergement professionnel</th>
+                <th scope="col">Nombre d’établissements</th>	
+                [...]
+            </tr>
+            <tr>
+                <th scope="row">Résidences de tourisme</th>
+                <td>2 426</td>
+                [...]
+            </tr>
+        </table> -->
+
+        <p>Equivalent ARIA :</p>
+
+        <img src="images/Tableau simple en ARIA.png" alt="Code pour un tableau simple avec ARIA">
+
+        <ul>
+            <li>Tableau : <strong>role="table"</strong></li>
+            <li>Titre : <strong>aria-label="Nom du tableau"</strong> ou <strong>aria-labelledby="@id_titre"</strong></li>
+            <li>Entêtes : <strong>role="rowheader</strong>" / <strong>role="columnheader"</strong></li>
+            <li>Cellules : <strong>role="cell"</strong></li>
+        </ul>
+        
+
+        <!-- <p id="titre">Parc et fréquentation des autres hébergements collectifs touristiques en 2018</p>
+        <div role="table" aria-labelledby="titre">
+        <div role="row">
+            <div role="columnheader">Type d’hébergement professionnel</div>
+            <div role="columnheader">Nombre d’établissements</div>
+            [...]
+        </div>
+        <div role="row">
+            <div role="rowheader">Résidences de tourisme</div>
+            <div role="cell">2 426</div>
+            [...]
+        </div>
+        </div> -->
+
+        <h2>Tableaux complexes</h2>
+            <ul>
+                <li>Complexe si une cellule est titrée par plus d’une ligne ou colonne d’en-tête</li>
+                <li><strong>"< caption >" </strong> : le <strong>titre + un résumé</strong> de l’organisation du tableau</li>
+                <li><strong>summary</strong> pour le résumé pour les <strong>versions précédentes de HTML</strong></li>
+            </ul>
+
+            
+        <p>Exemple:</p> 
+
+        <img src="images/tableau complexe CAPTION.png" alt="code de la caption à mettre sur tableau complexe">
+           
+        <p>  <caption ><br>
+            Figure 2 - Répartition des déchets non dangereux non minéraux hors boues de l’industrie manufacturière par type en 2016 <br>
+                <span>
+                Les industries agroalimentaires (IAA) et les industries manufacturières (hors IAA) sont présentées sur 2 colonnes,
+                avec, pour chacune d’elles la quantité en milliers de tonnes le pourcentage. Une troisième colonne présente le total des deux industries,
+                en milliers de tonnes et en pourcentage.<br>
+                </span><br>
+            </caption >
+        </p>
+
+   <h2>Tableaux complexes</h2>
+
+            <p>Identifier les cellules d’en-têtes via un attribut id et lier les cellules de données 
+                via l’attribut headers.<br>
+
+                Exemple : headers="id_1 id_2"
+            </p>
+            <img src="images/tableau complexe code.png" alt="image du code du tableau">
+            <img src="images/tableau complexe resultat image.png" alt="image du tableau sur le navigateur">
+
+            <br>
+
+            <strong>En gros: les données <td headers> de "Déchets banals" sont liés aux intitulés de colonnes:
+                Industrie agro via l'id entete1, Quantité via l'id entête4 et Déchets via l'id entete8 pour que <br>
+                le lecteur d'écran vocalise de façon logique à quoi correspondent les données.<br>
+                En l'absence de ces id le lecteur vocaliserait en ligne ce qui n'aurait aucun sens par rapport aux rapport entre les données<br>
+                Exemple: <br>
+                Le lecteur lirait: Déchets banals 1147 - 31 - 9795 - 97 - 10942 - 79 
+            </strong>
+
+
+    <h2>Images de décoration</h2>
+
+        <p>Pour les éléments <strong>< img >, empêcher la restitution</strong> au moyen de :
+        </p>
+        <ul>
+            <li><strong>alt vide</strong></li>
+            <li>ou <strong>aria-hidden="true"</strong></li>
+            <li>ou <strong>role="presentation"</strong></li>
+        </ul>
+
+        <img src="images/Image de déco .png" alt="Image de déco">
+
+        <p>Pour les éléments <strong>< svg >, empêcher la restitution</strong> au moyen de : 
+        </p>
+            <ul>
+                <li><strong>aria-hidden="true"</strong></li>
+            </ul>
+
+        <p>De plus 
+        </p>
+            <ul>
+                <li><strong>Aucun des attributs</strong> suivants ne doit être présent : <strong>aria-label / aria-describedby / aria-labelledby / role="img" / title</strong></li>
+                <li>Les balises <strong>< title> et < desc></strong> doivent être <strong>vides ou absentes</strong></li>
+            </ul>
+            <img src="images/svg décoratif caché.png" alt="svg décoratif caché">
+
+
+    <h2>Images porteuses d'information</h2>
+
+        <p>Pour les éléments <strong>< img >, définir une alternative</strong> au moyen de:
+        </p>
+        <ul>
+            <li><strong>aria-labelledby</strong></li>
+            <li>ou <strong>aria-label</strong></li>
+            <li>ou <strong>alt</strong></li>
+            <li><strong>title</strong></li>
+        </ul>
+
+        <img src="images/Images porteuses d'infos.png" alt="image décrivant comment doit être remplie l'attribut alt d'une image porteuse d'information">
+        <img src="images/rensigner info img differentes facons.png" alt="Description du codes pour donner une texte alternative a une img porteuse d'information">
+
+    <h2>Nom accessible</h2>
+
+        <ul>
+            <li><strong>Nom</strong> - donné à un <strong>element d'interface</strong> utilisateur - et <strong>exploité par les TA</strong>.</li>
+            <li>Déterminé par une <strong>propriété visible </strong>(par ex un <strong>texte</strong>) <strong>OU invisible </strong>( par ex attribut <strong>"alt"</strong>)</li>
+            <li>Alternative d'image / intitulé de lien ou bouton / étiquette de champ de formulaire <strong>= Nom accessible</strong></li>
+        </ul>
+
+        <strong>ATTENTION en cas d'implémentation multiple:
+        </strong>
+
+        <ul>
+            <li><a href="https://www.w3.org/TR/html-aam-1.0/" target="_blank">Voir l'algo de calcul du nom accessible</a></li>
+            <li>Restitution sur la base de référence</li>
+        </ul>
+
+        <img src="images/Nom accessible.png" alt="Code montrant comment indiquer un nom accessible">
+        <p>Car le "aria-label" prime sur le "alt" quand il y a les 2</p>
+
+        <img src="images/Nom accessible exemple de prio alt  title.png" alt=""> 
+        
+        <img src="images/Nom accessible exemple de prio aria-label alt.png" alt=""> 
+        
+        <br>
+
+        <img src="images/Nom acessible exemple aria-hidden true.png" alt=""> 
+
+        <br>
+        <br>
+        <br>
+        
+        <strong>Pour les elements <strong>< svg >, définir une alternative</strong> au moyen de :</svg>
+        </strong>
+
+        <ul>
+            <li><strong>role="img"</strong></a></li>
+            <li><strong>ET aria-label</strong> OU <strong>aria-labelledby</strong></li>
+        </ul>
+        <img src="images/SVG porteuse d'info.png" alt="code décrivant comment renseigner une svg porteuse d'information">
+
+
+    <h2>Image map</h2>
+
+        <strong>Image cliquable côté client
+        </strong>
+
+        <ul>
+            <li>1 alternative générique <strong>sur l'image elle-même</strong></li>
+            <li>1 alternative pertinente <strong>pour chaque zone sensible</strong></li>
+        </ul>
+        <img src="images/image map.png" alt="code pour créer une image map avec les alternatives">
+
+        <br>
+
+        <strong>Pour les alternatives :</strong>
+        <ul>
+            <li>L'alternative <strong>générique</strong> de l'image est <strong>alt "Carte de France"</strong></li>
+            <li> L'alternative <strong>pertintentes</strong> pour chaque zone sensible <strong>sont "Alsace","Bretagne"</strong> etc</li>
+        </ul>
+        </p>
+
+        <p>L'élément HTML <strong>< map ></strong> est utilisé avec des éléments <strong>< area ></strong> afin de 
+           définir une image cliquable divisée en régions.<br>
+        <strong>< img ></strong> a l'attribut <strong>usemap</strong> avec <strong>le #</strong> de l'ancre qui <strong>renvoie à la balise < map ></strong> avec l'<strong>id présente dans < img ></strong> <br>
+        
+        L'attribut <strong>name</strong> fournit un nom afin que la carte cliquable puisse être référencée. 
+        <br><strong>Cet attribut est obligatoire</strong> et sa valeur doit être une <strong>chaîne de caractères non-vide qui ne contient pas de blancs</strong>. 
+        <br>La <strong>valeur</strong> de cet attribut name <strong>doit être unique pour tous les éléments < map ></strong> du document. 
+        <br><strong>Si l'attribut  universel id est utilisé, name devra avoir la même valeur que celui-ci.</strong>
+        <br>
+
+        
+
+    <h2>Image description détaillée</h2>
+        
+    <ul>
+        <li><strong>Description</strong> détaillée <strong>adjacente</strong></li>
+        <li>OU <strong>lien adjacent</strong></li>
+
+    </ul>
+
+    <p>Egalement <strong>possible d'utiliser</strong> les attributs <strong>aria-label</strong> ou <strong>aria-labelledby</strong>.
+    </p>
+    <strong>Note: aria-label et aria-labelledby ne sont exploités que par les lecteurs d'écrans.
+    </strong>
+    <br>
+
+    <img src="images/image description detaillée.png" alt="exemple d'image avec description détaillée">
+    <img src="images/Code img description detaillée.png" alt="code montrant comment faire pour l'alt des image avec description détaillée">
+
+    <h2>Image captcha</h2>
+
+    <p>L’<strong>alternative</strong> de l’image doit permettre d’ <strong>identifier la nature de l’image</strong>
+    </p> 
+    <img src="images/Alternatives sur image CAPTCHA.png" alt="exemple d'alternative sur captcha avec le code">
+
+    <h3><strong>Alternative non graphique</strong>
+    </h3>
+    <ul>
+        <li>CAPTCHA <strong>sonore ou logique</strong></li>
+        <li>envoi du <strong>code par email/SMS</strong></li>
+
+    </ul>
+    <img src="images/CAPTCHA alternative non graphique.png" alt="">
+
+
+    <h2>Texte en image</h2>
+
+    <ul>
+        <li>Texte en image<strong> remplacé par du texte stylé (CSS)</strong></li>
+        <li>OU<strong> mecanisme de remplacement</strong></li>
+    </ul>
+    <img src="images/Texte en image exemples.png" alt="">
+    <img src="images/Configuration accessibilité texte pour les images 1.png" alt="">
+    <img src="images/Description texte pour les images 2.png" alt="">
+
+
+
+     <h2>Images légendées</h2>
+    <p>Légende : texte adjacent à une image</p>
+    <ul>
+        <li>qui contient des <strong>informations sur l'image </strong> (copyright, date, auteur...)</li>
+        <li>OU destiné à <strong>compléter les infos apportées par l'image </strong> (texte associé à une image dans une galerie d'images)</li>
+    </ul>
+
+    <p><strong></strong>Il faut associer la légende à l'image par une relation de structure </strong>pour que les TA traitent l<strong>'image et sa légende comme un ensemble unique</strong></p>
+
+    <img src="images/Code associant image et légende.png" alt="Code associant image et légende">
+
+ 
+    <h2>Les liens</h2>
+
+    <h3>Minute techniques concernant les liens</h3>
+
+    <img src="images/Minute technique sur les liens pour les TA.png" alt="Minute technique sur les liens pour les TA">
+
+    <h3>Liens explicites</h3>
+
+    <strong><p>Intitulé défini par :</p></strong>
+
+    <ul>
+        <li><strong>aria-labelledby</strong> </li>
+        <li><strong>aria-label</strong> </li>
+        <li>Contenu entre <strong>< a > et < /a > </strong> : texte ou contenu du <strong>alt</strong> pour les liens-images 
+            <br>ou combinaison des deux pour les liens composites</li>
+        <li><strong>title</strong> </li>
+        <li><a href="https://accessibilite.numerique.gouv.fr/methode/glossaire/#contexte-du-lien">Contextes :</a>
+        titre précédent, paragraphe, phrase...<strong>(Attention : les contextes sont non cumulatifs)</strong></li>
+        <li>Attribut <strong>title doit au moins reprendre l'intitulé</strong> </li>
+
+    </ul>
+
+    <img src="images/Lien explicites.png" alt="Lien explicites">
+
+    <strong><p>Le nom visible doit être contenu dans le nom accessible</p></strong>
+    <p>Ressource: <a href="https://a11y-tools.com/bookmarklets/#listlinks" aria-label="Bookmarklet pour visualiser la liste des liens et leur nom accessible">Bookmarklet pour visualiser la liste des liens et leur nom accessible</a></p>
+
+    <img src="images/Liens avec leur nom accessibles.png" alt="Liens avec leur nom accessibles">
+
+    <p><strong>Exemple QUIZZ</strong></p>
+    <img src="images/Quizz exemple nom accessible.png" alt="Quizz exemple nom accessible">
+    <img src="images/Quizz exemple nom accessible title et alt.png" alt="Quizz exemple nom accessible title et alt">
+    <img src="images/Quizz exemple nom accessible erreur.png" alt="Quizz exemple nom accessible erreur">
+
+
+
+    <h2>Lien identiques</h2>
+        <ul>
+            <li>Liens identiques = <strong>intitulé + contexte </strong></li>
+            <li> <strong>Même destination</strong></li>
+        </ul>
+
+        <p><strong>Exemple NON CONFORME:</strong></p>
+        <img src="images/Liens identiques non conformes.png" alt="Liens identiques non conformes">
+    
+    
+        <h2>Lien vides</h2>
+        <ul>
+            <li><strong>Pas de lien vides !</strong></li>
+            <li>Attention aux<strong> alt="" </strong>sur les images liens</li>
+            <li>Attention aux<strong> liens mis en forme via CSS </strong>uniquement (par exemple avec <strong>content</strong>)</li>
+           
+        </ul>
+
+        <p><strong>Exemple NON CONFORME lien mis en forme avec css dans html:</strong></p>
+        <img src="images/Lien img mis en forme par css.png" alt="Liens identiques non conformes">
+
+        <section>
+
+        <h2>4. AVERTIR ET LAISSER LE CONTROLE A L'UTILISATEUR</h2>
+
+            <h2>Limite de temps de session</h2>
+            <ul>
+                <li>L'utilisateurice doit pouvoir <strong>supprimer ou augmenter </strong>la limite de temps</li>
+                <li>La limite de temps est de <strong> 20h au moins </strong></li>
+                <li><strong>Cas particulier lorque la limite de temps est essentielle</strong></li>
+            </ul>
+
+
+            <h2>Rafraîchissement</h2>
+            <ul>
+                <li>L'utilisateurice peut <strong>arrêter et relancer </strong>le rafraîchissement</li>
+                <li>L'utilisateurice est <strong>alerté de l'imminence </strong>d'un rafraîchissement et <strong>peut augmenter le délai</strong> de 10 fois au moins</li>
+            </ul>
+
+            <img src="images/Rafraichissement désactivé exemple conforme.png" alt="Liens identiques non conformes">
+          
+          
+            <h2>Nouvelles fenêtres</h2>
+            <ul>
+                <li>Pas de nouvelles fenêtres<strong> sans action </strong>de l'utilisateurice</li>
+            </ul>
+
+
+            <h2>Documents en téléchargement</h2>
+            <ul>
+                <li><strong>Document accessible </strong></li>
+                <li>OU <strong>alternative accessible: </strong>en HTML / .doc / .odt structurés</li>
+            </ul>
+
+            <p>
+            <strong>Exemption:</strong>
+            Les fichiers publiés avant le 23 septembre 2018, sauf s’ils sont nécessaires à l’accomplissement 
+            d’une démarche administrative relevant des tâches effectuées par l’organisme concerné.
+            </p>
+            <strong>Ressources:</strong>
+            <ul>
+                <li><a href="https://accessibilite.public.lu/fr/rapdf1/index.html" target="_blank">Référentiel PDF</a></li>
+                <li><a href="https://accessibilite.public.lu/fr/rgaa4/files/liste-criteres-documents-bureautiques-telechargement-RGAA.docx" target="_blank">Liste des criteres de documents bureautiques telechargement RGAA</a></li>
+            </ul>
+
+            <strong>Outils: </strong>
+            <ul>
+                <li><a href="https://pac.pdf-accessibility.org/en/download" target="_blank">PAC 2024 (PDF Accessibility Checker)</a></li>
+                <li><a href="https://support.microsoft.com/fr-fr/office/am%C3%A9liorer-l-accessibilit%C3%A9-%C3%A0-l-aide-du-v%C3%A9rificateur-d-accessibilit%C3%A9-a16f6de0-2f39-4a2b-8bd8-5ad801426c7f" target="_blank">Vérificateur d'accessibilité Word</a></li>
+            </ul>
+        
+            <img src="images/Alternative conforme en HTML pour document non accessible.png" alt="Liens identiques non conformes">
+          
+
+            <h2>Clignotement et contenus en mouvement</h2>
+            <p>L'utilisateurice doit pouvoir</p>
+            <ul>
+                <li><strong>Arrêter et relancer</strong> (ex : bouton pause sur un carrousel)</li>
+                <li><strong>Masquer et réafficher</strong></li>
+                <li><strong>Afficher </strong>le contenu <strong>sans le mouvement</strong></li>
+                <li>Le mouvement dure <strong>5 secondes ou moins</strong></li>
+                <li><strong>Contrôle individuel </strong></li>
+            </ul>
+
+            <img src="images/Masquer ou afficher animation exemple conforme.png" alt="Liens identiques non conformes">
+
+            <h2>Effet de flash</h2>
+         
+            <ul>
+                <li>Fréquence limite : <strong>égale ou inf à 3 flashs / seconde</strong> </li>
+                <li>OU surface cumulée : <strong> égale ou inf à 21824 pixels</strong></li>
+            </ul>
+
+            <strong>Outil : </strong>
+            <a href="https://trace.umd.edu/peat/">Photosensitive Epilepsy Analysis Tool (PEAT)</a>
+
+            
+            <h2>Son déclenché automatiquement</h2>
+         
+            <ul>
+                <li> Les sons déclenchés automatiquement <strong>doivent être contrôlables</strong> </li>
+                <li>De préférence le contrôle doit être <strong>le premier élément de la page</strong></li>
+            </ul>
+
+            <img src="images/Contrôle son auto.png" alt="Contrôle son auto dans le code">
+
+
+
+            <h2>Indépendance de l'orientation</h2>
+         
+            <ul>
+                <li>Le contenu doit être <strong>consultable</strong> quel que soit l'orientation du périphérique: <strong>portrait ou paysage</strong></li>
+                <li><strong>SAUF si l'orientation est essentielle</strong></li>
+            </ul>
+
+            <img src="images/indépendance orientation non conforme.png" alt="indépendance de l'orientation non conforme">
+
+
+            <h2>Gestes complexes</h2>
+            <p>Les fonctionnalités utilisables par des <strong>gestes multipoints </strong>(zoom sur une carte) OU basés sur <strong>un tracé (swipe) :</strong></p>
+            <ul>
+                <li>Peuvent être réalisés avec <strong>un geste à point unique </strong>et / ou sans trajectoire</li>
+                <li><strong>SAUF si le geste est essentiel </strong>(ex le dessin d'une signature)</li>
+            </ul>
+
+            <strong>Exemples conforme:</strong><br>
+            <img src="images/Geste complexe remplacé pour boutons .png" alt="Geste complexe remplacé pour boutons">
+            <img src="images/Alternative au geste zoom avec bouton.png" alt="Alternative au geste zoom avec bouton">
+
+            <h2>Annulation du pointeur</h2>
+           
+            <ul>
+                <li>Aucun événement de doit être déclenché sur <strong>l'action descendante </strong>(down: mousedown sur desktop / touchstart sur mobile)</li>
+                <li>OU un mécanisme permet <strong>d'interrompre l'exécution de l'action</strong> avant la fin</li>
+                <li>OU un mécanisme permet <strong>d'annuler l'action</strong></li>
+            </ul>
+
+            <h2>Activation par le mouvement</h2>
+            <p>Les fonctions qui sont déclenchées en <strong>déplançant l'appareil </strong>(en secouant ou basculant) ou lorsque l'utilisateurice effectue 
+                <strong>un mouvement </strong>capté par des dispositifs de l'appareil (ex: une caméra) peuvent être:</p>
+           
+            <ul>
+                <li><strong>actionnés par des composants classiques </strong>(un bouton)</li>
+                <li><strong>désactivés</strong> pour éviter un déclenchement accidentel</li>
+                <li><strong>SAUF si le mouvement est essentiel pour la fonction</strong></li>
+            </ul>
+
+            <img src="images/Activation au mouvement exemple.png" alt="Activation au mouvement exemple">
+
+
+
+        <h2>5.COULEURS</h2>
+
+            <h2>Contrastes</h2>
+            <p>Evaluation pour : <strong>les textes / les textes en images / les textes incrustés</strong> (vidéo etc...)</p>
+             <ul>
+                <li><strong>Ratio de 4,5 minimum : </strong></li>
+                <ul>
+                    <li>police inf à <strong>24 px sans graisse</strong></li>
+                    <li>police inf à <strong>18,5 px gras</strong></li>
+                </ul>
+            </ul>
+
+             <ul>
+                <li><strong>Ratio de 3 minimum : </strong></li>
+                <ul>
+                    <li>police sup ou = à <strong>24 px sans graisse</strong></li>
+                    <li>police sup ou = à <strong>18,5 px gras</strong></li>
+                </ul>
+            </ul>
+             <ul>
+                <li><strong>Mécanisme de remplacement</strong></li>
+            </ul>
+
+            <img src="images/Ratio couleurs textes texte images et texte incrusté video.png" alt="Ratio couleurs textes texte images et texte incrusté video">
+
+            <h2>Contrastes des éléments graphiques</h2>
+            <p>Evaluation pour tous les <strong>éléments graphiques porteurs d'information</strong> (images / bouton / icônes / etc) <strong>SAUF cas particuliers</strong></p>
+                <ul>
+                    <li>Contraste minimum de <strong>3:1</strong></li>
+                    <li>Présence d'un <strong>mecanisme de remplacement</strong></li>
+                </ul>
+          
+                <p><strong>Exemples de cas particuliers:</strong></p>
+                <p>Composant inactif / composant natif du navigateur / élément avec une alternative / logo</p>
+                
+                <strong>Ressources:</strong><br>
+                <a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html" target="_blank">Comprendre le critère : quelques exemples</a><br>
+                <a href="https://alastairc.uk/tests/wcag21-examples/non-text-contrast.html" target="_blank"> Exemples de contrastes valides et invalides sur les différents états (hover et focus) de composants d'interface</a>
+
+                <img src="images/Contrastes éléments graphiques ratio 3.png" alt="Contrastes éléments graphiques ratio 3">
+
+            <h2>Visibilité de la prise de focus</h2>
+
+                <ul>
+                    <li>Pas de dégradation de <strong>l'outline natif ( outline:0 ) </strong></li>
+                    <li>OU utilisation d'une indication de focus augmentée <strong>suffisamment contrastée ( ratio min de 3) </strong></li>
+                </ul>
+          
+                <p>Les états <strong>:focus / :hover </strong> des composants doivent également être <strong>suffisamment contrastés</strong></p>
+                <img src="images/Exemple focus visible.png" alt="Exemple focus visible">
+
+                <p><strong>Attention aux composants interactifs masqués (case à cocher / bouton radio etc) : penser à répercuter la visibilité de la prise de focus sur l'élément</strong></p>
+       
+                <img src="images/composant interactif masqués visible focus.png" alt="composant interactif masqués visible focus">
+                <img src="images/Code pour composant interactif masqués visible focus.png">
+
+
+            <h2>Visibilité des liens en environnement de texte</h2>
+
+                <ul>
+                    <li><strong>Contraste suffisant </strong>( <strong>sup à 3</strong> par rapport au texte environnant)</li>
+                    <li><strong>Indicateur supplémentaire à la couleur (forme) </strong> au survol souris et à la prise de focus</li>
+                </ul>
+
+            
+            <h2>Couleurs par défaut</h2>
+
+                <ul>
+                    <li><strong>Si une couleur de police est définie : </strong>couleur de fond au moins héritée d'un parent</li>
+                    <li><strong>Si une couleur de fond est définie : </strong> couleur de police au moins héritée d'un parent</li>
+                </ul>
+                <img src="images/exemple couleurs hérité parent.png" alt="exemple code couleurs hérité parent">
+               
+                <ul>
+                    <li>Cas des <strong>images de fond</strong> utilisées pour créer une couleur de fond : <strong> s'assurer de la présence d'une propriété "background-color" sur le conteneur </strong></li>
+                </ul>
+                <img src="images/exemple code couleur de bg pour image de fond.png" alt="exemple code couleur de bg pour image de fond">
+                <img src="images/Couleurs bg et texte et liens.png" alt="Couleurs bg et texte et liens">
+        
+            
+            <h2>Information par la couleur</h2>
+
+                <strong>Cas les plus courants</strong>
+
+                <ul>
+                    <li>Indication de <strong>page active</strong></li>
+                    <li>Indication <strong>d'onglets affichés </strong></li>
+                    <li>Carrousel: indication de <strong>contenu actif</strong></li>
+                </ul>
+                <img src="images/Information par la couleur.png" alt="Information par la couleur">
+                <img src="images/Exemple couleur non conforme.png" alt="Exemple couleur non conforme">
+                <img src="images/Exemple non conforme couleur mais pas accessible SR.png" alt="Exemple non conforme couleur mais pas accessible SR">
+
+   
+
+        <h2>5. PRESENTATION - CSS </h2>
+
+            <h2> Information par la forme, la taille ou la position </h2>
+
+                <ul>
+                    <li><strong>Alternative textuelle </strong>par ex via un attribut <strong>title</strong></li>
+                    <li>OU <strong>une version alternative</strong></li>
+        
+                </ul>
+
+
+            <h2> Utilisation exclusive de CSS </h2>
+
+                <ul>
+                   <li>Utilisation exclusive de CSS : </li>
+                   <li>
+                      <ul>
+                         <li><strong>  link rel = "stylesheet" > </strong></li>
+                         <li><strong>  style >  style / > </strong></li>
+                         <li>OU attribut <strong>style en ligne</strong></li>
+                      </ul>
+                   </li>
+                   <li>Pas d'attribut de mise en forme <strong> < table border ="0" ></strong></li>
+                   <li>Pas d'attribut de mise en forme <strong> < font > </strong></li>
+        
+                </ul>
+
+                <img src="images/Exemple non conforme utilisation exclusive CSS.png" alt="Exemple non conforme utilisation exclusive CSS"><br>
+                <strong>Ressources : </strong>
+
+                <a href="https://accessibilite.numerique.gouv.fr/methode/glossaire/#presentation-de-l-information">Liste complète des attributs et balises interdites</a> <br>
+                <a href="https://access42.net/accessibilite-angular-material-attribut-color-rgaa/">Accessibilité d’Angular Material : l’attribut color et le RGAA </a>
+            
+
+            <h2>Contenus visibles sans CSS</h2>
+
+                <p>Le contenu visible reste présent lorsque les feuilles de styles sont désactivés</p>
+                <strong>Attention : </strong>
+
+                <ul>
+                    <li>Contenu inséré par CSS <strong> content </strong> (texte, icônes porteuses d'information)</li>
+                    <li>Images de fond porteuses d'informations <strong> ( background-image) </strong></li>
+                </ul>
+                <img src="images/Exemple code contenu visibles sans CSS.png" alt="Exemple code contenu visibles sans CSS">
+          
+          
+            <h2>Contenus compréhensible sans CSS</h2>
+
+                <p>Le contenu reste compréhensible lorsque les feuilles de styles sont désactivées.</p>
+
+                <ul>
+                    <li>Ordre des éléments <strong> logique</strong></li>
+                    <li>Ordre des éléments <strong> cohérent, </strong>l'enchainement de la lecture est cohérente</li>
+                </ul>
+                
+
+                <strong>Exemple non conforme : </strong>
+                <img src="images/Exemple non conforme contenu ordre logique.png" alt="Exemple non conforme contenu ordre logique">
+
+
+
+            <h2>Contenus cachés</h2>
+
+                <p>Pour les composants qui ont les propriétés CSS</p>
+
+                <ul>
+                    <li><strong> display:none</strong></li>
+                    <li><strong> visibility:hidden</strong></li>
+                    <li><strong> font-size:0</strong></li>
+                </ul>
+                
+                <p>Ou les composants avec la propriété ARIA <strong>aria-hidden:"true" ou hidden</strong> (dans ces cas, vérifier la cohérence entre la visibilité des contenus et la valeur de la propriété)</p>
+                <strong>S'assurer que le contenu masqué n'a pas vocation à être réstitué par les technologies d'assistance. </strong>
+                <img src="images/Exemple contenu caché.png" alt="Exemple contenu caché">
+
+
+            <h2>Zoom texte</h2>
+
+                <strong>Unités des tailles de police</strong>
+
+                <ul>
+                    <li>Utiliser des tailles de police relatives : <strong> em / rem / %</strong></li>
+                    <li>Depuis RGAA 4 :  tailles de police en <strong>px</strong> authorisées</li>
+                </ul>
+                
+                <p><strong>NOTE IMPORTANTE : </strong> Les tailles de police en px ne premettent pas d'agrandir les textes sur certains navigateurs.</p>
+                <img src="images/Taille police pour zoom texte.png" alt="Code taille police relative pour zoom texte">
+
+                <p>Le texte doit <strong>rester lisible</strong> lorsque la taille des caractères est <strong>augmentée à 200%</strong></p>
+                <ul>
+                    <li><strong>Zoom texte : </strong> Firefox : "Affichage > Zoom texte seul" - agrandissement à <strong>200% (ctrl + 6 fois)</strong> </li>
+                    <li>OU utilisation des <strong>fonctions de zoom du navigateur </strong>( zoom graphique)</li>
+                    <li>OU utilisation d'un <strong>dispositif d'agrandissement des caractères </strong>(A+ / A-)</li>
+                </ul>
+                
+                <p><strong>NOTE IMPORTANTE : </strong> 
+                    Les fonctionnalités de zoom du navigateur ou du mécanisme d'agrandissement 
+                    sont inutiles si l'utilisateurice a modifié la taille par défaut dans les paramètres de son navigateur
+                </p>
+                <strong>Exemple Gestion zoom non conforme :</strong><br>
+                <img src="images/Gestion zoom non conforme.png" alt="Gestion zoom non conforme">
+
+
+            <h2>Linéarisation des contenus</h2>
+
+                <p>Les contenus doivent <strong>rester présent, lisibles et utilisables</strong> sans utilisation des 2 ascenseurs : </p>
+
+                <ul>
+                    <li>Pour les contenus dont le sens de consultation est <strong> VERTICAL : </strong>LARGEUR de fenêtre réduite à <strong>320px</strong></li>
+                    <li>Pour les contenus dont le sens de consultation est <strong> HORIZONTAL : </strong>HAUTEUR de fenêtre réduite à <strong>256px</strong></li>
+                    
+                </ul>
+                
+                <p>Pour tester dans Firefox : <strong> Ctrl + Alt + M </strong></p>
+                <img src="images/Linérisation du contenu .png" alt="Linérisation du contenu">
+           
+           
+            <h2>Adaptation des textes </h2>
+
+                <p>Les textes doivent <strong>rester lisibles</strong> dans les conditions suivantes : </p>
+
+                <ul>
+                    <li><strong>interlignage </strong>augmenté de  <strong>1,5 fois la taille de police</strong></li>
+                    <li><strong>marge suivant un paragraphe </strong> augmentée de  <strong>2 fois la taille de police</strong></li>
+                    <li><strong>espacement des lettres </strong>augmenté de  <strong>0,12 fois la taille de police</strong></li>
+                    <li><strong>espacement des mots </strong>augmenté jusqu'à  <strong>0,16 fois la taille de police</strong></li>
+                    
+                    
+                </ul>
+                
+                <p><strong> Cas particuliers:  </strong>sous-titre incrusté / image-texte / texte dans une balise <strong>canvas</strong></p>
+                <img src="images/Adaptation des textes.png" alt="Adaptation des textes">
+                <img src="images/Code pour adaptation des textes.png" alt="Code pour adaptation des textes">
+ 
+ 
+ 
+            <h2>Contrôle des contenus additionnels au survol ou à la prise de focus.</h2>
+
+                <p>Contenus qui apparaissent <strong>à la prise de focus OU au survol </strong> d'un élément: </p>
+
+                <ul>
+                    <li><strong>Peut être masqué </strong>sans déplacer le focus ou le pointeur (raccourci clavier : par exemple la touche [ESC] )</li>
+                    <li><strong>Peut être survolé </strong> sans disparaitre </li>
+                    <li><strong>Reste visible </strong>tant que le composant déclencheur OU le contenu lui-même est actif </li>                    
+                </ul>
+                
+                <p>Les contenus gérés par le navigateur <strong> (title)  </strong>OU qui utilisent un modèle de conception ARIA  <strong>(tooltip, modale) </strong>ne sont pas concernés.</p>
+                <img src="images/Contrôle des  contenus au survol ou prise de focus.png" alt="Contrôle des  contenus au survol ou prise de focus">
+                <img src="images/Contrôle du ontenu survol ou focus non conforme.png" alt="Contrôle du contenu survol ou focus non conforme">
+
+
+
+            <h2>Contrôle des contenus additionnels au clavier</h2>
+
+                <p>Contenus qui apparaissent <strong> au survol  d'un élément, au moyen de CSS, </strong> doivent apparaitre également au clavier </p>
+
+                <ul>
+                    <li>Le contenu apparait <strong>à la prise de focus sur un composant</strong></li>
+                    <li>OU le contenu apparait <strong>suite à l'activation d'un composant ou d'une fonctionnalité (un bouton).</strong> </li>                   
+                </ul>
+                
+                <p>Par accès au clavier, on entend <strong>le clavier et tout autre périphérique de pointage équivalent.</strong></p>
+                <img src="images/Contrôle contenu au clavier non conforme.png" alt="Contrôle contenu au clavier non conforme">
+                <img src="images/Contrôle contenu au clavier conforme.png" alt="Contrôle contenu au clavier conforme">
+
+
+
+        <h2>7. MULTIMEDIA </h2>
+
+            <h2> Média temporel</h2>
+
+                <p>Le média temporel est <strong> clairement identifiable grâce au contexte adjacent : </strong>titre ou texte adjacent.</p>
+                <img src="images/Média temporel.png" alt="Média temporel">
+
+
+            <h2>Alternatives aux médias</h2> 
+
+                <ul>
+                    <li><strong>Transcription textuelle: </strong>texte structuré qui <strong>reprend l'ensemble du contenu oral et visuel</strong> (pour les médias vidéo, son et synchronisés) 
+                        OU une <strong>alternative audio seule </strong> (médias seulement vidéo)
+                    </li>
+                    <li><strong>Sous-titres synchronisés: </strong> (médias synchronisés)</li>
+                    <li><strong>Audiodescription: </strong> média vidéo avec ou sans son, 
+                        obligatoire uniquement si la bande son originale dispose des espaces blancs suffisants 
+                        pour inclure la piste d'audiodescription.
+                    </li>
+                </ul>
+
+                <img src="images/Transcription textuelle exemple conforme.png" alt="Transcription textuelle exemple conforme">
+
+
+
+            <h2>Media temporel - compatible avec les TA</h2> 
+                <img src="images/Definition média temporel.png" alt="">
+
+                <ul>
+                    <li><strong>Contrôles obligatoires </strong></li>
+                    <li><strong>Au clavier et souris </strong></li>
+                    <li><strong>Nom pertinent: mise à jour des noms play et pause </strong></li>
+                    <li><strong>Mise à jour des valeurs: timing, son etc </strong></li>
+                </ul>
+
+                <strong>Lecteurs vidéos accessibles : </strong>
+                <ul>
+                    <li><a href="https://ableplayer.github.io/ableplayer/"></a>Able player</li>
+                    <li><a href="https://videojs.com/"></a>VideoJS</li>
+                    <li><a href="https://plyr.io/"></a>Plyr</li>
+                    <li><a href="https://www.brightcove.com/"></a>BrightCove</li>
+                </ul>
+                <img src="images/Medias temporel compatible TA.png" alt="Medias temporel compatible TA">
+
+
+
+            <h2>Media non temporel</h2> 
+                <p>Contenu qui ne se déroule pas dans le temps, consultable via un plugin (Flash, Java, Silverlight…) ou via les éléments svg et canvas ; 
+                    par exemple, une carte interactive en Flash, une application Flash ou Java, un diaporama sont des médias non temporels. 
+                    Un média non temporel peut contenir des médias temporels (un lecteur Flash qui propose une liste de vidéos à consulter, par exemple).
+                </p>
+
+                <p>Animations intégrées dans <strong> < canvas > ou < svg > </strong></p>
+
+                <ul>
+                    <li>Mise à disposition systématique d'une alternative présentant les mêmes contenus et les mêmes fonctionnalités (si nécessaire)</li>
+                </ul>
+
+                <img src="images/Media non temporel non conforme.png" alt="Media non temporel non conforme">
+
+        <h2>8. FORMULAIRES </h2>
+
+            <h2>Etiquette de champ </h2>
+
+                <p>Visuellement, la nature du champs est identifiée par : </p>
+
+                <ul>
+                    <li><strong>un intitulé </strong>visible et pertinent</li>
+                    <li><strong>OU un bouton </strong>visible et pertinent</li>
+                    <li><strong>OU à minima un attribut title </strong>visible et pertinent</li>
+                </ul>
+
+                <p><strong>Note : placeholder </strong> ne remplace pas une étiquette visible.</p>
+
+                <p>Dans le code, le champ doit avoir un <strong>nom accessible</strong></p>
+
+                <ul>
+                    <li><strong>aria-labelledby / id</strong></li>
+                    <li><strong>aria-label</strong></li>
+                    <li><strong> < label > </strong> avec relation <strong>for / id</strong></li>
+                    <li><strong>title</strong></li>
+                </ul>
+            
+                <p><strong>Note : placeholder </strong> n'est pas un nom accessible et robuste.</p>
+
+                <img src="images/Etiquettes de champ formulaires.png" alt="Code étiquettes de champ formulaires">
+
+            <h2>Nom visible et nom accessible </h2>
+            
+                <p><strong>Le nom visible doit être contenu dans le nom accessible.</strong> </p>
+
+                <a href="https://www.w3.org/TR/html-aam-1.0/" target="blank">Algorithme de calcul du nom accessible</a>
+                <br>
+
+               <img src="images/Nom visible et accessible formulaire recherche.png" alt="code nom visible et accessible formulaire recherche">
+            
+               <img src="images/Exemple nom visible et nom accessible non conforme.png" alt="Exemple nom visible et nom accessible non conforme">
+
+            
+            <h2>Etiquette de champ </h2>
+            
+                <p><strong>Attention: </strong> </p>
+                <p>Les <strong>labels et les champs</strong> doivent être <strong>accolés</strong></p>
+
+                <strong>Exemple non conforme:</strong>
+                <br>
+                <img src="images/Exemple etiquette de champ non conforme label non accolés.png" alt="Exemple etiquette de champ non conforme label non accolés">
+
+
+            <h2>Regroupement de champs </h2>
+            
+                <p><strong>Réunir les éléments communs avec: </strong> </p>
+                <ul>
+                    <li> <strong> < fieldset ></strong>  et titrer avec <strong>< legend ></strong> </li>
+                    <li> un élément  <strong>div</strong>  possède le <strong> role="group"</strong> et titrer avec <strong>aria-label ou aria-labelledby</strong> </li>
+                </ul> 
+
+                <img src="images/Regroupement de champs.png" alt="Regroupement de champs">
+                <img src="images/Regroupement de champs code.png" alt="Regroupement de champs code">
+
+
+            <h2>Liste de choix </h2>
+            
+                <p>Regrouper item de même nature d'une liste de choix <strong> < select > </strong> si nécessaire</p>
+                <strong> < optgroup label ="label du regroupement" > </strong>
+                <br>
+
+                <img src="images/Code regrouppement des listes de choix optgroup label dans select.png" alt="Code regroupement des listes de choix optgroup label dans select">
+              <img src="images/Exemple regroupement option non conforme.png" alt="Exemple regroupement option non conforme">
+              
+            
+            <h2>Intitulés de boutons </h2>
+
+                <ul>
+                    <li>L'intitulé <strong>(nom accessible) </strong>est pertinent</li>
+                    <li>Si l'intitulé possède un <strong>nom visible</strong>, alors il est aussi <strong>contenu dans le nom accessible</strong></li>
+
+                </ul>
+
+                <img src="images/Code nom visible et accessibles input.png" alt="Code nom visible et accessibles input">
+                <img src="images/Quizz nom accessible et visible value.png" alt="Quizz nom accessible et visible value">
+                <img src="images/Quizz nom accessible aria label et describedby.png" alt="Quizz nom accessible aria label et describedby">
+        
+               
+            <h2>Aide à la saisie : champs obligatoires </h2>
+
+            <p>Indiquer les champs obligatoires</p>
+
+                <ul>
+                    <li>Au moyen d'un <strong>texte dans le nom accessible </strong></li>
+                    <li>OU au moyen d'un <strong>texte avant le champ, </strong>relié au champ via un attribut <strong>aria-describedby="id_dun_texte"</strong></li>
+                    <li>OU au moyen de <strong>l'attribut required, d'une propriété aria-required ou aria-label  </strong>(+ indication visuelle)</li>
+                    <li>Dans tous les cas il faut une <strong>indication visible</strong></li>
+                </ul>
+
+                <img src="images/Aide à la saisie champs obligatoires.png" alt="Aide à la saisie champs obligatoires">
+           
+            
+
+            <h2>Aide et contrôles de saisie </h2>
+
+                <ul>
+                    <li>Format attendu:  <strong>fournir le format de saisie </strong></li>
+                    <li>Contrôle de saisie:  <strong>fournir un exemple de saisie </strong>relié au champ via un attribut <strong>aria-describedby="id_dun_texte"</strong></li>
+                    <li>Directement <strong>dans l'étiquette</strong> du champ concerné </li>
+                    <li>OU via l'attribut <strong>aria-describedby="id_dun_texte"</strong></li>
+                    <li><strong>L'indication doit être visible</strong></li>
+                </ul>
+
+                <img src="images/Aide et contrôles de saisie formulaires.png" alt="Aide et contrôles de saisie formulaires">
+                <img src="images/API constraint navigation Validation Native.png" alt="API constraint navigation Validation Native">
+                <img src="images/Modification du message d'erreur natif.png" alt="Modification du message d'erreur natif">
+                <img src="images/Personnalisation message d'erreur de saisie avec exemple.png" alt="Personnalisation message d'erreur de saisie avec exemple">
+             
+                
+
+            <h2>Nature des champs de formulaires </h2>
+
+                <p>Pour les <strong>champs qui collectent des infos personnelles sur l'utilisateurice </strong>la nature du champs(finalité) est déterminable à partir du code (attributs / propriétés). </p>
+                <p>Utilisation de l'attribut <strong>autocomplete</strong></p>
+                
+                <ul>
+                    <li><a href="https://accessibilite.numerique.gouv.fr/methode/glossaire/#liste-des-valeurs-possibles-pour-l-attribut-autocomplete">Glossaire du RGAA : Typologie des données personnelles</a></li>
+                    <li><a href="https://access42.net/attribut-html-autocomplete-valeurs-coordonnees-personnelles-francaises/">Blog d'Access42 : Attribut HTML autocomplete : quelles valeurs utiliser pour les coordonnées personnelles françaises ?</a></li>
+                    <li><a href="https://access42.net/transcription-conference-personnalisation-interfaces-accessibilite/">Transcription de conférence « Et si on laissait les utilisateurs et les utilisatrices personnaliser l’interface ? »</a> </li>
+                   
+                </ul>   
+
+
+        <h2>9. INTERACTIVITE ET CONTENUS COMPLEXES</h2>
+
+            <h2>Ordre de tabulation, piège au clavier </h2>
+                    
+                    <ul>
+                        <li><strong>Ordre de tabulation cohérent: </strong>Modale / système d'onglet / menu déroulant / ajout/affichage du contenu additionnel etc</li>
+                        <li><strong>Pas de piège au clavier </strong> (focus figé dans un composant) </li>
+                    </ul> 
+        
+        <img src="images/Piège au clavier menu.png" alt="Piège au clavier dans un menu navigation">
+
+        <p><strong>Ressources: </strong></p>
+            <ul>
+                <li><a href="https://www.pauljadam.com/bookmarklets/focus.html">Bookmarklet pour visualiser le déplacement du focus</a></li>
+                <li><a href="https://access42.net/reprise-de-focus-et-accessibilite/">Reprises de focus et Accessibilité sur le blog Access42</a></li>
+            </ul>
+
+            <img src="images/Comment gérer focus accessible en JS.png" alt="Comment gérer focus accessible en JS">
+            <img src="images/Reprise de focus exemples.png" alt="Reprise de focus exemples">
+            <img src="images/Piège au clavier exemple.png" alt="Piège au clavier exemple">
+    
+
+        <h2>Utilisation de l'attribut tabindex </h2>
+
+        <p><strong>2 valeurs authorisées</strong></p>
+                    
+            <ul>
+                <li><strong>tabindex="0" :  </strong>Inclus l'élément dans le parcours séquentiel de tabulation</li>
+                <li><strong>tabindex ="-1" :  </strong> 
+                    <ul>
+                        <li><strong>Exclu</strong> du parcours séquentiel de tabulation un <strong>élément prenant nativement le focus comme < button > , < a href="..." >, etc </a></strong></li>
+                        <li><strong>Permet </strong>à un élément <strong>ne prenant pas nativement le focus de le recevoir : ( méthode Javascript (focus) ) </strong> </li>
+                        <li><strong>Ne permet pas de faire ignorer</strong> un élément par les technologies d'assistances <strong>( différent de aria-hidden="true")</strong> </li>
+                    </ul>
+                </li>
+            </ul> 
+        
+        <img src="images/Code utilisation tabindex 0 et -1.png" alt="Code utilisation tabindex 0 et -1.png">
+
+        <strong>Ressource :  </strong>
+        <a href="https://www.scottohara.me/blog/2019/05/25/tabindex.html">Valeurs de l’attribut tabindex</a> 
+
+        <img src="images/Cas concret de tabindex sur elem non interactif pour focus JS.png" alt="Cas concret de tabindex -1 sur element non interactif pour focus JS">
+
+        
+        <strong>
+            Ne pas utiliser de tabindex sup à zero !
+        </strong>
+
+        <img src="images/Parcours tabu dégradé par tabindex sup à 0.png" alt="Parcours tabulation dégradé par tabindex sup à 0.png">
+        <img src="images/Parcours dégradé tabindex sup à 0 deuxième exemple.png" alt="Parcours dégradé tabindex sup à 0 deuxième exemple
+        ">
+
+        <h2>Accès au contenu additionnel affiché </h2>
+
+        <p>Pour une zone de contenu additionnel qui contient un élément interactif (bouton / lien / champs de formulaire) </p>
+                    
+            <ul>
+                <li><strong>L'élément interactif doit pouvoir être atteint au clavier</strong></li>
+                <li><strong>La zone doit rester visible </strong> tant que le focus se trouve sur l'élément ou la zone contrôlée </li>
+            </ul> 
+        
+        <p><strong>Exemple : </strong>Une infobulle qui contient un lien</p>
+
+        <img src="images/Acces au contenu additionnel affiché.png" alt="Accès au contenu additionnel affiché">
+
+
+        <h2>Raccourci clavier </h2>
+
+        <p>Pour tous les raccourcis clavier <strong>de caractère imprimables</strong> </p>
+                    
+            <ul>
+                <li>L'utilisateurice dispose d'un mécanisme <strong>pour désactiver ou configurer le raccourci clavier </strong> avec une touche de modification</li>
+                <li>OU le raccourci clavier n'est  <strong>effectif que lorsque le focus est dans le composant </strong> sur lequel il s'applique </li>
+            </ul> 
+
+        <img src="images/raccourcis claviers.png" alt="raccourcis claviers">
+
+
+        <h2>Compatibilité avec les technologies d'assistance </h2>
+                    
+            <ul>
+                <li>Nom, rôle et valeur</li>
+                <li>Accès au clavier et à la souris</li>
+                <li>OU une alternative accessible</li>
+            </ul> 
+
+        <img src="images/raccourcis claviers.png" alt="raccourcis claviers">
+
+
+        <h2>Rôle pertinent </h2>
+
+        <p><strong>Tout composant interactif doit avoir un rôle et qui soit pertinent </strong></p>
+        <p>Par exemple: </p>
+                    
+            <ul>
+                <li>Un composant qui <strong>déclenche l'ouverture d'une page ou d'un onglet doit être un lien</strong></li>
+                <li>Un composant qui <strong>déclenche un évéènement dans la page, qui est le support d'une fonction JavaScript, doit être un boutton ou implémenter le motif ARIA button</strong></li>
+            </ul> 
+
+        <img src="images/Rôle pertinent des composants.png" alt="Rôle pertinent des composants">
+
+        <h2>Nom accessible pertinent </h2>
+
+        <p><strong>Tout composant interactif doit avoir un nom accessible pertinent </strong></p>
+        <p>Selon la nature du composant, le nom accessible peut être déterminé par :</p>
+                    
+            <ul>
+                <li>Le contenu de a propriété <strong>aria-labelledby</strong></li>
+                <li>Le contenu de a propriété <strong>aria-label</strong></li>
+                <li>Le contenu <strong> du texte </strong> (ou de l'alternative de l'image)</li>
+                <li>Le contenu de l'attribut <strong>title</strong></li>
+            </ul> 
+
+            <strong>IMPORTANT : </strong>
+            <p>En cas de cooncurrence des implémentations, c'est <strong>l'algo de calcul de nom accessible</strong> qui pemet de déterminer quelle valeur est le nom accessible</p>
+            <p>Le nom accessible doit  <strong> toujours reprendre le nom visible</strong> </p>
+
+        <img src="images/Nom accessible pertinent pour les composants.png" alt="Nom accessible pertinent pour les composants">
+
+
+        <h2>Etat et changements d'états pertinents </h2>
+
+        <p><strong>Si nécessaire, l'état (et les changements d'état) ou la valeur du composant sont accessibles aux API d'accessibilité </strong></p>
+        <p>Selon l'information à véhiculer, il est possible d'informer les utilisateurices des états, changements d'états ou valeurs du compoant de différentes manières.</p>
+                    
+            <ul>
+                <li><strong>L'état séléctionné d'un bouton </strong> (dans une liste de boutons par ex) pourra employer la propriété <strong>aria-pressed="true"</strong> (attention: l'état séléctionné peut être rendu par différentes propriété en fonction du contexte, notamment dans le cas de motifs de conception)</li>
+                <li><strong>Lorsqu'un composant est inactif </strong>c'est à dire qu'une action n'est pas possible, on utilisera l'attribut <strong>disabled</strong></li>
+                <li><strong>Lorsqu'un composant change d'état </strong> que sa fonctionnalité est modifiée, on peut également passer par un <strong>changement de nom accessible ou de description </strong>( par exemple: la transformation d'un bouton lecture en pause, on verifiera que l'intitulé a bien été modifié pour retranscrire la fonctionnalité qui sera déclenchée à la prochaine activation du bouton, pas uniquement l'apparence visuelle)</li>
+            </ul> 
+
+        <img src="images/Etats et changement d'état pertinent des composants.png" alt="Etats et changement d'état pertinent des composants">
+
+
+        <h2>Utilisation au clavier et à la souris </h2>
+
+        <p><strong>Tous les composants doivent être utilisables au clavier </strong></p>
+        <p>S'assurer que les composants interactifs reçoivent le focus de tabulation et peuvent être activés au clavier, et que les interactions au clavier sont respectées</p>
+        <p>Dans certains cas, <strong>les motifs de conception ARIA</strong>nous aident à évaluer des comportement au clavier en déterminant des interactions attendues (tabulation, flèche de direction, entrée, espace)</p>    
+
+        <img src="images/Utilisation au clavier.png" alt="Utilisation au clavier">
+
+
+        <h2>Alternatives accessibles </h2>
+
+        <p>Dans le cas où <strong>le composant ne peut pas être rendu accessible, </strong>il est possible de mettre en place une <strong>alternative accessible </strong> qui offre les même fonctions.</p>    
+
+        <p><strong>Cas typiques : </strong></p>
+        <p><strong>Les datepickers :</strong> Le datepicker n'est pas accessible mais le champ de date associé est inscriptible et l'utilisateurice peut choisir une date en saisissant avec son clavier. <br>
+        On n'évaluera pas le datepicker mais simplement l'alternative. ceci ne sera valable que si le datepicker lui-même n'apporte pas d'informations (par exemple des dates d'indisponibilité)</p>
+
+        <img src="images/Alternative accessible datepicker.png" alt="Alternative accessible datepicker">
+        <img src="images/Alternative accessible datepicker non conforme indispo.png" alt="Alternative accessible datepicker non conforme car indispo non accessible">
+        
+
+        <h2>Changement de contexte </h2>
+                    
+            <ul>
+                <li><strong>Un texte explicatif </strong> précédent le changement de contexte </li>
+                <li><strong>Un bouton ou un lien explicite </strong></li>
+            </ul> 
+
+            <strong>Exemples: </strong>
+
+            <ul>
+                <li><a href="http://a11ynot.com/nots/F37.html">Changement de contexte au moment de la sélection</a> </li>
+                <li><a href="http://a11ynot.com/nots/F36-1.html">Changement de contexte à la perte de focus</a> </li>
+            </ul> 
+
+        <img src="images/Changement de contexte.png" alt="Changement de contexte">
+
+
+        <h2>Message de statut </h2>
+
+        <p>Informer les TA des messages d'alerte de confirmation de statut, sans déplacer le focus de l'utilisateurice</p>
+                    
+            <ul>
+                <li><strong>role="alert"</strong></li>
+                <li><strong>role="status"</strong></li>
+                <li><strong>role="log"</strong></li>
+                <li>Utiliser le modèle de conception <strong>progressbar </strong> pour les messages d'attente</li>
+            </ul> 
+
+            <p>Methode alternative : utiliser la propriété <strong>aria-live</strong></p>
+
+            <p><strong>Ressources : </strong></p>
+            <ul>
+                <li><a href="https://access42.net/live-regions-aria-live-analogues-alert-log-status/">Live regions ARIA : aria-live et ses analogues alert, log, status</a> </li>
+                <li><a href="https://access42.net/live-regions-aria-restitution-lecteurs-ecran/">Live regions ARIA : comment garantir leur restitution par les lecteurs d’écran ?</a> </li>
+            </ul> 
+
+        <img src="images/Message de statut conforme.png" alt="Message de statut conforme">
+
+        <strong>Démonstration : zone de mise à jour</strong>
+        <img src="images/Demonstration de zone de mise à jour .png" alt="Demonstration de zone de mise à jour">
+
+        </section>
+        <section class="aria">
+
+            <h2>ARIA : Accessible Rich Internet Applications</h2> 
+
+            <ul>
+                <li>Définir les composants d'interface et de structure</li>
+                <li>Informer des états et des propriétés des composants d'interface</li>
+                <li>Mise à jour de contenus dynamiques</li>
+                <li>Composants utilisables au clavier</li>
+            </ul>
+
+            <h2>Respecter les règles d'usage</h2>
+
+            <ul>
+                <li><strong>5 règles de base : </strong><a href="https://www.w3.org/TR/2018/WD-using-aria-20180927/" target="_blank">Notes on Using ARIA in HTML</a> à partir de 2.1</li>
+                <li><strong>A lire : </strong>Kit de survie du développeur ARIA <br>
+                    <a href="https://access42.net/kit-de-survie-aria-1-3/" target="_blank">Partie 1</a>
+                    <a href="https://access42.net/kit-de-survie-aria-2-3/" target="_blank">Partie 2</a>
+                    <a href="https://access42.net/kit-de-survie-aria-3-3/" target="_blank">Partie 3</a>
+                </li>
+            </ul>
+
+            <h3>1. Privilégier la méthode native</h3>
+
+            <ul>
+                <li><strong>Exceptions: </strong>limitation de style ou de support ou contraintes techniques</li>
+                <li>Tester la restitution</li>
+                <li>Raccourcis clavier des TA non garantis</li>
+            </ul>
+
+            <img src="images/Privilégier la methode native tableau CanIuse sur dialog.png" alt="Privilégier la methode native tableau CanIuse sur dialog">
+           
+           
+            <h3>2. Ne pas changer la sémantique</h3>
+
+            <ul>
+                <li><strong>Exceptions: </strong>contraintes techniques ou méthode de fallback (repli) </li>
+                <li>Fonctionnalités de navigation des TA non garanties</li>
+                <li> <a href="https://www.w3.org/TR/html-aria/#docconformance" target="_blank">Restriction des rôles</a> </li>
+            </ul>
+
+            <img src="images/Ne pas changer la sémantique code à faire et ne pas faire.png" alt="Ne pas changer la sémantique code à faire et ne pas faire">
+            
+            
+            <h3>3. Les composants interactifs doivent être utilisables au clavier</h3>
+
+            <ul>
+                <li>Les composants doivent pouvoir être <strong>atteint à la tabulation : </strong>en ajoutant la propriété <strong>tabindex="0" </strong>si nécessaire</li>
+                <li>Les composants doivent implémenter <strong>les interactions claviers </strong>nécessaires au rôle: par exemple les éléments avec le <strong>role="button"</strong> doivent être activables avec la touche <strong>Entrée et Espace</strong> comme un <strong> < button > </strong> natif</li>
+                <li> Critère RGAA4 <a href="https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#7.3" target="_blank">7.3</a> </li>
+            </ul>
+
+            <img src="images/Composant interactif utilisables au clavier.png" alt="Composant interactif utilisable au clavier">
+            
+            
+            <h3>4. Ne pas supprimer la sémentique des éléments interactifs ou empêcher leur restitution</h3>
+
+            <ul>
+                <li>Pas de <strong>role="presentation"</strong> sur les élements focussables</li>
+                <li>Pas de <strong>aria-hidden="true" </strong>(et hérité des parents) sur les élements focussables</li>
+            </ul>
+
+            <img src="images/Ne pas supprimer la sémentique des éléments interactifs ou empêcher leur restitution.png" alt="Ne pas supprimer la sémentique des éléments interactifs ou empêcher leur restitution">
+
+
+            <h3>5. Tout composant interactif doit avoir un nom accessible</h3>
+
+            <ul>
+                <li><a href="https://www.w3.org/TR/html-aam-1.0/" target="_blank">Voir l'algo de calcul du nom accessible</a></li>
+                <li>Nom accessible <strong>≠ </strong> description accessible</li>
+                <li>Visioneuse d'arborescence d'accessibilité</li>
+            </ul>
+
+            <img src="images/Tout composant interactif doit avoir un nom accessible.png" alt="Tout composant interactif doit avoir un nom accessible">
+            <br>
+            <strong>Comment un lecteur d'écran sait-il de quoi il parle ?</strong>
+            <br>
+            <img src="images/Comment un lecteur d'ecran sait-il de quoi il parle.png" alt="Comment un lecteur d'ecran sait-il de quoi il parle">
+
+
+            <h2>Motif de conception</h2>
+
+            <p><strong>Motif de conception (design pattern): </strong> décrit structure, rôle, propriété et comportement d'un composant JavaScript (widget)</p>
+            
+            <ul>
+                <li><a href="https://www.w3.org/WAI/ARIA/apg/patterns/" target="_blank">ARIA authoring practices</a></li>
+                <li><a href="https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/" target="_blank">Modale ARIA</a></li>
+            </ul>
+
+            <img src="images/Motif de conception ARIA.png" alt="Motif de conception ARIA">
+
+            <h2>Environnement de test</h2>
+            <p>Pour toutes les implémentations JavaScript ARIA, <strong>il est nécessaire de réaliser des tests de restitution et d'utilisation </strong>avec les lecteurs d'écran de base de référence.</p>
+          
+            <p>Les composants simples sont largement bien supportés (disclosure et modale par exemple). Les testes de restitution sont surtout très utiles <strong>sur les composants complexes comme les combox, datepicker, grid, etc)</strong></p>
+            
+            <strong>Ressources : </strong>
+            <p>Pour prendre en main les lecteurs d'écran, suivre le pas à pas du 
+                <a href="https://disic.github.io/guide-lecteurs_ecran/" target="_blank">Guide sur les lecteurs d'écran</a>
+            </p>
+
+            <img src="images/Environnement de teste.png" alt="Environnement de teste">
+
+            <h2>DEMONSTRATION ARIA</h2>
+
+            <h2>Formulaire</h2>
+            <img src="images/Demonstration ARIA Formulaire.png" alt="Demonstration ARIA Formulaire">
+
+            <p>Verion Améliorée avec ARIA :</p>
+            <img src="images/Demonstration améliorée avec ARIA Formulaire.png" alt="Demonstration améliorée avec ARIA Formulaire">
+
+            <h2>Afficher / Masquer</h2>
+
+            <p>Etude du <a href="https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/" target="_blank">motif ARIA Disclosure</a></p>
+
+            <img src="images/Afficher et masquer.png" alt="Afficher et masquer">
+            <br>
+            <a href="https://access42.net/developper-un-composant-accessible-pour-afficher-masquer-une-zone/" target="_blank">Développer un composant accessible pour afficher/masquer une zone</a>
+            <br>
+            <img src="images/Code Motif ARIA Disclosure.png" alt="Code Motif ARIA Disclosure">
+
+
+            <h2>Potentiomètre</h2>
+
+            <img src="images/Potentiomètre.png" alt="Potentiomètre">
+            <br>
+            <img src="images/Code input plutot que slider.png" alt="Code input plutot que slider">
+            <br>
+            <a href="https://www.w3.org/WAI/ARIA/apg/patterns/slider/" target="_blank">motif ARIA Slider</a>
+            <br>
+            <a href="https://disic.github.io/guide-lecteurs_ecran/1-slider.html" target="_blank">Evaluation du motif Slider avec les lecteurs d'écran</a>
+
+
+            <h2>Barre de progression</h2>
+
+            <img src="images/Code barre de progression.png" alt="Code barre de progression">
+            <br>
+            <a href="https://disic.github.io/guide-lecteurs_ecran/2-progressbar.html" target="_blank">
+                <figure>
+                    <figcaption>Evaluation barre de progression lien</figcaption>
+                    <img src="images/Evaluation barre de progression.png" alt="Evaluation barre de progression">
+                    
+                </figure>
+            </a>
+            <br>
+
+
+            <h2>Chat</h2>
+
+            <img src="images/Chat accessible.png" alt="Chat accessible">
+            <br>
+            <a href="https://css-tricks.com/jquery-php-chat/" target="_blank">
+                Exemple de chat accessible mis à jour avec AJAX
+            </a>
+            <br>
+
+            <h2>Systèmes d'onglets</h2>
+
+            <a href="https://www.w3.org/WAI/ARIA/apg/patterns/tabs/">Etude du motif ARIA Tab</a>
+            <a href="https://codepen.io/pen">Exemple de code avec ouverture auto des onglets quand focusés</a>
+            
+            <h2>COMPOSANTS ARIA</h2>
+            <a href="https://disic.github.io/rgaa_composants_javascript/">Étude de composants : bibliothèque de référence pour tests de restitution</a>
+           
+           <h2>Outils de tests automatisés</h2>
+
+            <!-- SUITE DU COURS PAGE 217 RESSOURCES ARIA !! -->
+
+
+        </section>
+    </main>
+    
+</body>
+<footer> 
+    
+    <h2>Footer </h2>
+   <p>
+        <strong>
+            ARIA role="contentinfo" unique
+            <br>Obligatoire pour le pied de page du document
+        </strong>
+   </p>
+    <ul>
+        <li> Contenus de <strong>pied de page / d’articles</strong> </li>
+        <li> OU de contenus regroupés par <strong> < section ></strong> </li>
+    </ul>
+       
+
+</footer>
+</html>
